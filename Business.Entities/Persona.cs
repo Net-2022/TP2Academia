@@ -2,7 +2,7 @@
 
 namespace Business.Entities
 {
-    internal class Persona : BusinessEntity
+    public class Persona : BusinessEntity
     {
         private string _Apellido;
         public string Apellido

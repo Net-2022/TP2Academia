@@ -1,6 +1,6 @@
 ﻿namespace Business.Entities
 {
-    internal class AlumnoInscripcion : BusinessEntity
+    public class AlumnoInscripcion : BusinessEntity
     {
         private string _Condicion;
         public string Condicion

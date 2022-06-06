@@ -1,6 +1,6 @@
 ﻿namespace Business.Entities
 {
-    internal class Plan : BusinessEntity
+    public class Plan : BusinessEntity
     {
         private string _Descripcion;
         public string Descripcion

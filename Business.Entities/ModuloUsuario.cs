@@ -1,6 +1,6 @@
 ﻿namespace Business.Entities
 {
-    internal class ModuloUsuario : BusinessEntity
+    public class ModuloUsuario : BusinessEntity
     {
         private int _IDModulo;
         public int IDModulo

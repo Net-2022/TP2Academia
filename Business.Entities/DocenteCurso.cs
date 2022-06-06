@@ -1,6 +1,6 @@
 ﻿namespace Business.Entities
 {
-    internal class DocenteCurso : BusinessEntity
+    public class DocenteCurso : BusinessEntity
     {
         private TiposCargos _Cargo;
         public TiposCargos Cargo

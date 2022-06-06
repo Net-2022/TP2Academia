@@ -1,6 +1,6 @@
 ﻿namespace Business.Entities
 {
-    internal class Especialidad : BusinessEntity
+    public class Especialidad : BusinessEntity
     {
         private string _Descripcion;
         public string Descripcion

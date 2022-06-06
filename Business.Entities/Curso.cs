@@ -1,6 +1,6 @@
 ﻿namespace Business.Entities
 {
-    internal class Curso : BusinessEntity
+    public class Curso : BusinessEntity
     {
         private int _AnioCalendario;
         public int AnioCalendario

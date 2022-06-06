@@ -1,6 +1,6 @@
 ﻿namespace Business.Entities
 {
-    internal class Comision : BusinessEntity
+    public class Comision : BusinessEntity
     {
         private int _AnioEspecialidad;
         public int AnioEspecialidad
