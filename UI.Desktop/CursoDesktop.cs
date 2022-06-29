@@ -103,8 +103,10 @@ namespace UI.Desktop
         private new bool Validar()
         {
             bool descripcionVal = ValidarCampoVacio(txtDescripcion, errorDescripcion, "La descripcion no puede estar vacia.");
+            bool cupoVal = ValidarCampoVacio(txtCupo, errorCupo, "El cupo no puede estar vacio.");
+            bool anioCalendarioVal = ValidarCampoVacio(txtAnioCalendario, errorAnioCalendario1, "El año del calendario no puede estar vacio.");
 
-            bool isOK = descripcionVal;
+            bool isOK = (descripcionVal && cupoVal && anioCalendarioVal);
 
             if (!isOK)
             {

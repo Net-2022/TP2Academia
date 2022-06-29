@@ -46,8 +46,12 @@ namespace UI.Desktop
             this.label6 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.errorDescripcion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorCupo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorAnioCalendario1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescripcion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCupo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAnioCalendario1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -55,9 +59,9 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.12069F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.87931F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -117,7 +121,7 @@ namespace UI.Desktop
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(264, 6);
+            this.label4.Location = new System.Drawing.Point(267, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 3;
@@ -127,7 +131,7 @@ namespace UI.Desktop
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(268, 32);
+            this.label5.Location = new System.Drawing.Point(270, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 4;
@@ -156,7 +160,7 @@ namespace UI.Desktop
             // 
             // txtIDComision
             // 
-            this.txtIDComision.Location = new System.Drawing.Point(353, 3);
+            this.txtIDComision.Location = new System.Drawing.Point(352, 3);
             this.txtIDComision.Name = "txtIDComision";
             this.txtIDComision.ReadOnly = true;
             this.txtIDComision.Size = new System.Drawing.Size(110, 20);
@@ -164,7 +168,7 @@ namespace UI.Desktop
             // 
             // txtIDMateria
             // 
-            this.txtIDMateria.Location = new System.Drawing.Point(353, 29);
+            this.txtIDMateria.Location = new System.Drawing.Point(352, 29);
             this.txtIDMateria.Name = "txtIDMateria";
             this.txtIDMateria.ReadOnly = true;
             this.txtIDMateria.Size = new System.Drawing.Size(110, 20);
@@ -173,9 +177,9 @@ namespace UI.Desktop
             // btnAceptar
             // 
             this.btnAceptar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAceptar.Location = new System.Drawing.Point(242, 121);
+            this.btnAceptar.Location = new System.Drawing.Point(248, 121);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(105, 35);
+            this.btnAceptar.Size = new System.Drawing.Size(98, 35);
             this.btnAceptar.TabIndex = 10;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -184,9 +188,9 @@ namespace UI.Desktop
             // btnCancelar
             // 
             this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancelar.Location = new System.Drawing.Point(353, 121);
+            this.btnCancelar.Location = new System.Drawing.Point(352, 121);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(113, 35);
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -196,7 +200,7 @@ namespace UI.Desktop
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(285, 59);
+            this.label6.Location = new System.Drawing.Point(288, 59);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(18, 13);
             this.label6.TabIndex = 12;
@@ -204,7 +208,7 @@ namespace UI.Desktop
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(353, 55);
+            this.txtID.Location = new System.Drawing.Point(352, 55);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(110, 20);
@@ -213,6 +217,14 @@ namespace UI.Desktop
             // errorDescripcion
             // 
             this.errorDescripcion.ContainerControl = this;
+            // 
+            // errorCupo
+            // 
+            this.errorCupo.ContainerControl = this;
+            // 
+            // errorAnioCalendario1
+            // 
+            this.errorAnioCalendario1.ContainerControl = this;
             // 
             // CursoDesktop
             // 
@@ -225,6 +237,8 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescripcion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCupo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAnioCalendario1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -247,5 +261,7 @@ namespace UI.Desktop
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.ErrorProvider errorDescripcion;
+        private System.Windows.Forms.ErrorProvider errorCupo;
+        private System.Windows.Forms.ErrorProvider errorAnioCalendario1;
     }
 }
