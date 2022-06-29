@@ -88,7 +88,9 @@ namespace UI.Desktop
             this.tlCursos.SetColumnSpan(this.dvgCursos, 2);
             this.dvgCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dvgCursos.Location = new System.Drawing.Point(3, 3);
+            this.dvgCursos.MultiSelect = false;
             this.dvgCursos.Name = "dvgCursos";
+            this.dvgCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgCursos.Size = new System.Drawing.Size(820, 417);
             this.dvgCursos.TabIndex = 0;
             // 
