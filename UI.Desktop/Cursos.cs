@@ -19,6 +19,28 @@ namespace UI.Desktop
             InitializeComponent();
             this.dvgCursos.ReadOnly = true; //que sea de solo lectura 
             this.dvgCursos.AutoGenerateColumns = false; //No agregue columnas automáticamente
+            this.dvgCursos.AllowUserToAddRows = false;
+            this.dvgCursos.AllowUserToDeleteRows = false;
+            this.dvgCursos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dvgCursos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            AddTextColumn("id", "ID", "ID");
+            AddTextColumn("anio Calendario", "AnioCalendario", "AnioCalendario");
+            AddTextColumn("cupo", "Cupo", "Cupo");
+            AddTextColumn("descripcion", "Descripcion", "Descripcion");
+            AddTextColumn("id comision", "IDComision", "IDComision");
+            AddTextColumn("id materia", "IDMateria", "IDMateria");
+
+        }
+
+        private void AddTextColumn(string name, string headerText, string dataPropertyName)
+        {
+            DataGridViewTextBoxColumn newColumn = new DataGridViewTextBoxColumn();
+            newColumn.Name = name;
+            newColumn.HeaderText = headerText;
+            newColumn.DataPropertyName = dataPropertyName;
+
+            this.dvgCursos.Columns.Add(newColumn);
         }
 
         public void Listar()
@@ -53,7 +75,7 @@ namespace UI.Desktop
         {
             int ID = ((Business.Entities.Curso)this.dvgCursos.SelectedRows[0].DataBoundItem).ID;
 
-            CursoDesktop cursoDesk = new CursoDesktop(ApplicationForm.ModoForm.Modificacion);
+            CursoDesktop cursoDesk = new CursoDesktop(ID, ApplicationForm.ModoForm.Modificacion);
             cursoDesk.ShowDialog();
             this.Listar();
         }
@@ -62,7 +84,7 @@ namespace UI.Desktop
         {
             int ID = ((Business.Entities.Curso)this.dvgCursos.SelectedRows[0].DataBoundItem).ID;
 
-            CursoDesktop cursoDesk = new CursoDesktop(ApplicationForm.ModoForm.Baja);
+            CursoDesktop cursoDesk = new CursoDesktop(ID, ApplicationForm.ModoForm.Baja);
             cursoDesk.ShowDialog();
             this.Listar();
         }

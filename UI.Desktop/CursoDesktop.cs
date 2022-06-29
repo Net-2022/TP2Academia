@@ -23,7 +23,8 @@ namespace UI.Desktop
 
         public CursoDesktop(ModoForm modo): this() //este constructor servira para las altas
         {
-
+            this.modo = modo;
+            MapearDeDatos();
         }
 
         public CursoDesktop(int ID, ModoForm modo) : this()
@@ -84,8 +85,8 @@ namespace UI.Desktop
             {
                 this.CursoActual = new Curso();
             }
-            this.CursoActual.AnioCalendario = int.Parse(this.txtAnioCalendario.Text); //se puede hacer de otra forma el convertir de string a int
-            this.CursoActual.Cupo = int.Parse(this.txtCupo.Text);
+            this.CursoActual.AnioCalendario = Convert.ToInt32(this.txtAnioCalendario.Text.Trim()); //se puede hacer de otra forma el convertir de string a int
+            this.CursoActual.Cupo = int.Parse(this.txtCupo.Text.Trim());
             this.CursoActual.Descripcion = this.txtDescripcion.Text.Trim();
             this.CursoActual.State = (BusinessEntity.States)(int)modo;
 
