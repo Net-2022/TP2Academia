@@ -4,82 +4,148 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Entities;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Data.Database
 {
     public class EspecialidadesAdapter:Adapter
     {
-        #region DatosEnMemoria
-        // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
-        private static List<Especialidad> _Especialidades;
-
-        private static List<Especialidad> Especialidades
-        {
-            get
-            {
-                if (_Especialidades == null)
-                {
-                    _Especialidades = new List<Business.Entities.Especialidad>();
-                    Business.Entities.Especialidad esp;
-                    esp = new Business.Entities.Especialidad();
-                    esp.ID = 1;
-                    esp.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    esp.Descripcion = "Ingenieria";
-                    _Especialidades.Add(esp);
-
-                    esp = new Business.Entities.Especialidad();
-                    esp.ID = 2;
-                    esp.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    esp.Descripcion = "Diseño Industrial";
-                    _Especialidades.Add(esp);
-
-                }
-                return _Especialidades;
-            }
-        }
-        #endregion
-
-
         public List<Especialidad> GetAll()
         {
-            return new List<Especialidad>(Especialidades);
+            try
+            {
+                List<Especialidad> listaEspecialidades = new List<Especialidad>();
+
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT * From especialidades", sqlConn);
+                SqlDataReader drEspecialidades = cmdGetAll.ExecuteReader();
+
+                while (drEspecialidades.Read())
+                {
+                    Especialidad especialidadActual = new Especialidad();
+                    especialidadActual.ID = (int)drEspecialidades["id_especialidad"];
+                    especialidadActual.Descripcion = (string)drEspecialidades["desc_especialidad"];
+                    listaEspecialidades.Add(especialidadActual);
+                }
+                drEspecialidades.Close();
+
+                return listaEspecialidades;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al recuperar Especialidades.", ex);
+            }
+            finally {
+                this.CloseConnection();
+            }
         }
 
         public Business.Entities.Especialidad GetOne(int ID)
         {
-            return Especialidades.Find(delegate (Especialidad e) { return e.ID == ID; });
+            try
+            {
+                Especialidad especialidadActual = new Especialidad();
+
+                this.OpenConnection();
+                SqlCommand cmdGetOne = new SqlCommand("SELECT * from especialidades WHERE id_especialidad = @id", sqlConn);
+                cmdGetOne.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+
+                SqlDataReader drEspecialidades = cmdGetOne.ExecuteReader();
+
+                if (drEspecialidades.Read())
+                {
+                    especialidadActual.ID =(int)drEspecialidades["id_especialidad"];
+                    especialidadActual.Descripcion = (string)drEspecialidades["desc_especialidad"];
+                }
+                drEspecialidades.Close();
+
+                return especialidadActual;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al recuperar la especialidad.",ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
         }
 
         public void Delete(int ID)
         {
-            Especialidades.Remove(this.GetOne(ID));
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdDelete = new SqlCommand("DELETE especialidades from especialidades WHERE id_especialidad=@id", sqlConn);
+                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Error al eliminar la especialidad.", ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
+        public void Update(Especialidad especialidadActual) 
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdUpdate = new SqlCommand("Update especialidades set desc_especialidad=@descripcion Where id_especialidad=@id", sqlConn);
+                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = especialidadActual.ID;
+                cmdUpdate.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = especialidadActual.Descripcion;
+
+                cmdUpdate.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar la especialidad.", ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
+        public void Insert(Especialidad especialidadActual) 
+        {
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdInsert = new SqlCommand("Insert into especialidades(desc_especialidad)" +
+                        "values(@descripcion)" + "select @@identity", sqlConn);
+                cmdInsert.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = especialidadActual.Descripcion;
+            
+                especialidadActual.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al insertar especialidad.", ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
         }
 
         public void Save(Especialidad especialidad)
         {
-            if (especialidad.State == BusinessEntity.States.New)
+            switch (especialidad.State)
             {
-                int NextID = 0;
-                foreach (Especialidad esp in Especialidades)
-                {
-                    if (esp.ID > NextID)
-                    {
-                        NextID = esp.ID;
-                    }
-                }
-                especialidad.ID = NextID + 1;
-                Especialidades.Add(especialidad);
+                case BusinessEntity.States.New: this.Insert(especialidad); break;
+                case BusinessEntity.States.Deleted: this.Delete(especialidad.ID); break;
+                case BusinessEntity.States.Modified: this.Update(especialidad); break;
+                case BusinessEntity.States.Unmodified: break;
             }
-            else if (especialidad.State == BusinessEntity.States.Deleted)
-            {
-                this.Delete(especialidad.ID);
-            }
-            else if (especialidad.State == BusinessEntity.States.Modified)
-            {
-                Especialidades[Especialidades.FindIndex(delegate (Especialidad esp) { return esp.ID == especialidad.ID; })] = especialidad;
-            }
-            especialidad.State = BusinessEntity.States.Unmodified;
         }
     }
 }
