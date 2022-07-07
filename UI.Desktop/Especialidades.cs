@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business.Entities;
+using Business.Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business.Entities;
-using Business.Logic;
 
 
 namespace UI.Desktop
@@ -35,11 +35,11 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            EspecialidadesLogic el = new EspecialidadesLogic();
+            EspecialidadLogic el = new EspecialidadLogic();
             this.dgvEspecialidades.DataSource = el.GetAll();
         }
 
-        private void AddTextColumn (string name, string headerText, string dataPropertyName)
+        private void AddTextColumn(string name, string headerText, string dataPropertyName)
         {
             DataGridViewTextBoxColumn newColumn = new DataGridViewTextBoxColumn();
             newColumn.Name = name;
@@ -66,7 +66,7 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            EspecialidadDesktop especialidadDesktop= new EspecialidadDesktop( ApplicationForm.ModoForm.Alta);
+            EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(ApplicationForm.ModoForm.Alta);
             especialidadDesktop.ShowDialog();
             this.Listar();
         }
@@ -75,7 +75,7 @@ namespace UI.Desktop
         {
             int ID = ((Business.Entities.Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
 
-            EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(ID,ApplicationForm.ModoForm.Baja);
+            EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Baja);
             especialidadDesktop.ShowDialog();
             this.Listar();
         }

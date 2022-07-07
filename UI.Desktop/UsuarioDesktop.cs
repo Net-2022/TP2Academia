@@ -115,7 +115,7 @@ namespace UI.Desktop
             bool apellidoVal = ValidarCampoVacio(txtApellido, erpApellido, "El apellido no puede estar vacio.");
             bool usuarioVal = ValidarCampoVacio(txtUsuario, erpUsuario, "El usuario no puede estar vacio.");
 
-            bool emailVal = ValidarEmail(txtEmail,erpEmail, "El email ingresado no es valido.");
+            bool emailVal = ValidarEmail(txtEmail, erpEmail, "El email ingresado no es valido.");
 
             bool claveVal = ValidarClave(txtClave, erpClave, "La clave no puede tener menos de 8 caracteres.");
 
@@ -123,15 +123,17 @@ namespace UI.Desktop
 
             bool isOK = nombreVal && apellidoVal && usuarioVal && emailVal && claveVal && confirmacionClaveVal;
 
-            if (!isOK) {
-                MessageBox.Show("Hay campos incorrectos, por favor verifique.","Campos incorrectos",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            if (!isOK)
+            {
+                MessageBox.Show("Hay campos incorrectos, por favor verifique.", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return isOK;
         }
 
         #region ValidacionesPersonalizadas
 
-        private bool ValidarConfirmacionClave(TextBox txtActual, ErrorProvider erpActual, string mensajeError) {
+        private bool ValidarConfirmacionClave(TextBox txtActual, ErrorProvider erpActual, string mensajeError)
+        {
             if (txtActual.Text != txtClave.Text)
             {
                 erpActual.SetError(txtConfirmarClave, mensajeError);
@@ -146,7 +148,7 @@ namespace UI.Desktop
 
         private bool ValidarClave(TextBox txtActual, ErrorProvider erpActual, string mensajeError)
         {
-            if (txtActual.Text.Trim().Length<8)
+            if (txtActual.Text.Trim().Length < 8)
             {
                 erpActual.SetError(txtActual, mensajeError);
                 return false;
@@ -158,7 +160,8 @@ namespace UI.Desktop
             }
         }
 
-        private bool ValidarEmail(TextBox txtActual, ErrorProvider erpActual, string mensajeError){
+        private bool ValidarEmail(TextBox txtActual, ErrorProvider erpActual, string mensajeError)
+        {
             if (!Validaciones.IsValidEmail(txtEmail.Text))
             {
                 erpEmail.SetError(txtEmail, mensajeError);
@@ -172,7 +175,7 @@ namespace UI.Desktop
         }
 
 
-        private bool ValidarCampoVacio(TextBox txtActual,ErrorProvider erpActual, string mensajeError)
+        private bool ValidarCampoVacio(TextBox txtActual, ErrorProvider erpActual, string mensajeError)
         {
             if (String.IsNullOrEmpty(txtActual.Text.Trim()))
             {

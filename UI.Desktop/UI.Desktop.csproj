@@ -78,10 +78,36 @@
       <DependentUpon>CursoDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="EspecialidadesDesktop.cs">
+    <Compile Include="ModuloUsuarioDesktop.cs">
+
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EspecialidadesDesktop.Designer.cs">
-      <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
+    <Compile Include="ModuloUsuarioDesktop.Designer.cs">
+      <DependentUpon>ModuloUsuarioDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuloDesktop.Designer.cs">
+      <DependentUpon>ModuloDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModulosUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModulosUsuarios.Designer.cs">
+      <DependentUpon>ModulosUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos.Designer.cs">
+      <DependentUpon>Modulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspecialidadDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EspecialidadDesktop.Designer.cs">
+      <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="InicioSesion.cs">
       <SubType>Form</SubType>
@@ -127,6 +153,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+
     <EmbeddedResource Include="ComisionDesktop.resx">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +168,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EspecialidadesDesktop.resx">
       <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
+    <EmbeddedResource Include="ModuloUsuarioDesktop.resx">
+      <DependentUpon>ModuloUsuarioDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuloDesktop.resx">
+      <DependentUpon>ModuloDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModulosUsuarios.resx">
+      <DependentUpon>ModulosUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos.resx">
+      <DependentUpon>Modulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspecialidadDesktop.resx">
+      <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>

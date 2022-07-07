@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Business.Entities;
+using Business.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Business.Logic;
-using Business.Entities;
 
 namespace UI.Consola
 {
@@ -17,7 +17,8 @@ namespace UI.Consola
             UsuarioNegocio = new UsuarioLogic();
         }
 
-        public void Menu() {
+        public void Menu()
+        {
             Console.Clear();
             Console.WriteLine(
                 @"1– Listado General
@@ -35,19 +36,21 @@ namespace UI.Consola
                 case ConsoleKey.D3: this.Agregar(); break;
                 case ConsoleKey.D4: this.Modificar(); break;
                 case ConsoleKey.D5: this.Eliminar(); break;
-                case ConsoleKey.D6:break;
+                case ConsoleKey.D6: break;
                 default: Console.WriteLine("Por favor, ingrese una opcion valida."); break;
             }
-            
+
             if (opcion.Key != ConsoleKey.D6) { Console.ReadKey(); this.Menu(); }
         }
 
-        private void ListadoGeneral() {
-            List<Usuario> listaUsuarios= UsuarioNegocio.GetAll();
+        private void ListadoGeneral()
+        {
+            List<Usuario> listaUsuarios = UsuarioNegocio.GetAll();
             listaUsuarios.ForEach(usuario => { MostrarDatos(usuario); });
-            }
-        
-        private void Consultar() {
+        }
+
+        private void Consultar()
+        {
             try
             {
                 Console.WriteLine("Ingrese el ID a consultar.");
@@ -62,13 +65,15 @@ namespace UI.Consola
             {
                 Console.WriteLine(error.Message);
             }
-            finally {
+            finally
+            {
                 Console.WriteLine("Presione una tecla para continuar.");
                 Console.ReadKey();
             }
         }
 
-        private void Agregar() {
+        private void Agregar()
+        {
             Usuario usuario = new Usuario();
 
 
@@ -97,14 +102,15 @@ namespace UI.Consola
         }
 
 
-        private void Modificar() {
+        private void Modificar()
+        {
             try
             {
                 Console.WriteLine("Ingrese el ID a consultar.");
                 int ID = int.Parse(Console.ReadLine());
 
                 Usuario usuario = UsuarioNegocio.GetOne(ID);
-                
+
                 Console.WriteLine("Ingrese Nombre:");
                 usuario.Nombre = Console.ReadLine();
 
@@ -140,7 +146,8 @@ namespace UI.Consola
             }
         }
 
-        private void Eliminar() {
+        private void Eliminar()
+        {
             try
             {
                 Console.WriteLine("Ingrese el ID a eliminar.");
@@ -161,10 +168,11 @@ namespace UI.Consola
                 Console.WriteLine("Presione una tecla para continuar.");
                 Console.ReadKey();
             }
- 
+
         }
 
-        private void MostrarDatos(Usuario usr) {
+        private void MostrarDatos(Usuario usr)
+        {
             string fila = String.Format("|{0,2}|{1,10}|{2,25}|{3,15}|{4,10}|{5,10}|{6,15}|", usr.ID, usr.State, usr.Email, usr.Nombre, usr.Apellido, usr.NombreUsuario, usr.Clave);
             Console.WriteLine(fila);
         }

@@ -7,7 +7,8 @@ namespace UI.Desktop
     {
         static private Business.Entities.Usuario _usuarioLogueado;
 
-        static public Business.Entities.Usuario usuarioLogueado {
+        static public Business.Entities.Usuario usuarioLogueado
+        {
             get { return _usuarioLogueado; }
             set { _usuarioLogueado = value; }
         }
@@ -20,7 +21,7 @@ namespace UI.Desktop
 
         private void MenuPrincipal_Shown(object sender, EventArgs e)
         {
-            if(new InicioSesion().ShowDialog()!= DialogResult.OK)
+            if (new InicioSesion().ShowDialog() != DialogResult.OK)
             {
                 this.Dispose();
             }
@@ -35,7 +36,7 @@ namespace UI.Desktop
 
         private void cerrarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
+
             if (new InicioSesion().ShowDialog() != DialogResult.OK)
             {
                 this.Dispose();
@@ -50,6 +51,11 @@ namespace UI.Desktop
         private void especialidadesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new Especialidades().Show();
+        }
+
+        private void modulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Modulos().Show();
         }
     }
 }

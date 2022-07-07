@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Business.Entities;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Business.Entities;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace Data.Database
 {
-    public class EspecialidadesAdapter:Adapter
+    public class EspecialidadAdapter : Adapter
     {
         public List<Especialidad> GetAll()
         {
@@ -37,7 +37,8 @@ namespace Data.Database
             {
                 throw new Exception("Error al recuperar Especialidades.", ex);
             }
-            finally {
+            finally
+            {
                 this.CloseConnection();
             }
         }
@@ -56,7 +57,7 @@ namespace Data.Database
 
                 if (drEspecialidades.Read())
                 {
-                    especialidadActual.ID =(int)drEspecialidades["id_especialidad"];
+                    especialidadActual.ID = (int)drEspecialidades["id_especialidad"];
                     especialidadActual.Descripcion = (string)drEspecialidades["desc_especialidad"];
                 }
                 drEspecialidades.Close();
@@ -65,7 +66,7 @@ namespace Data.Database
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al recuperar la especialidad.",ex);
+                throw new Exception("Error al recuperar la especialidad.", ex);
             }
             finally
             {
@@ -84,7 +85,7 @@ namespace Data.Database
 
                 cmdDelete.ExecuteNonQuery();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Error al eliminar la especialidad.", ex);
             }
@@ -94,7 +95,7 @@ namespace Data.Database
             }
         }
 
-        public void Update(Especialidad especialidadActual) 
+        public void Update(Especialidad especialidadActual)
         {
             try
             {
@@ -115,7 +116,7 @@ namespace Data.Database
             }
         }
 
-        public void Insert(Especialidad especialidadActual) 
+        public void Insert(Especialidad especialidadActual)
         {
             try
             {
@@ -124,7 +125,7 @@ namespace Data.Database
                 SqlCommand cmdInsert = new SqlCommand("Insert into especialidades(desc_especialidad)" +
                         "values(@descripcion)" + "select @@identity", sqlConn);
                 cmdInsert.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = especialidadActual.Descripcion;
-            
+
                 especialidadActual.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (Exception ex)

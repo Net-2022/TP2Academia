@@ -31,12 +31,13 @@ namespace UI.Desktop
         {
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.aBMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.especialidadesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionesUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.especialidadesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.modulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,11 +62,35 @@ namespace UI.Desktop
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // opcionesUsuarioToolStripMenuItem
+            // 
+            this.opcionesUsuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modificarUsuarioToolStripMenuItem,
+            this.cerrarSesionToolStripMenuItem1});
+            this.opcionesUsuarioToolStripMenuItem.Name = "opcionesUsuarioToolStripMenuItem";
+            this.opcionesUsuarioToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
+            this.opcionesUsuarioToolStripMenuItem.Text = "Opciones Usuario";
+            // 
+            // modificarUsuarioToolStripMenuItem
+            // 
+            this.modificarUsuarioToolStripMenuItem.Name = "modificarUsuarioToolStripMenuItem";
+            this.modificarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.modificarUsuarioToolStripMenuItem.Text = "Modificar Usuario";
+            this.modificarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.modificarUsuarioToolStripMenuItem_Click);
+            // 
+            // cerrarSesionToolStripMenuItem1
+            // 
+            this.cerrarSesionToolStripMenuItem1.Name = "cerrarSesionToolStripMenuItem1";
+            this.cerrarSesionToolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
+            this.cerrarSesionToolStripMenuItem1.Text = "Cerrar Sesion";
+            this.cerrarSesionToolStripMenuItem1.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem1_Click);
+            // 
             // aBMToolStripMenuItem
             // 
             this.aBMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuariosToolStripMenuItem1,
-            this.especialidadesToolStripMenuItem1});
+            this.especialidadesToolStripMenuItem1,
+            this.modulosToolStripMenuItem});
             this.aBMToolStripMenuItem.Name = "aBMToolStripMenuItem";
             this.aBMToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.aBMToolStripMenuItem.Text = "ABM";
@@ -84,28 +109,12 @@ namespace UI.Desktop
             this.especialidadesToolStripMenuItem1.Text = "Especialidades";
             this.especialidadesToolStripMenuItem1.Click += new System.EventHandler(this.especialidadesToolStripMenuItem1_Click);
             // 
-            // opcionesUsuarioToolStripMenuItem
+            // modulosToolStripMenuItem
             // 
-            this.opcionesUsuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modificarUsuarioToolStripMenuItem,
-            this.cerrarSesionToolStripMenuItem1});
-            this.opcionesUsuarioToolStripMenuItem.Name = "opcionesUsuarioToolStripMenuItem";
-            this.opcionesUsuarioToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.opcionesUsuarioToolStripMenuItem.Text = "Opciones Usuario";
-            // 
-            // modificarUsuarioToolStripMenuItem
-            // 
-            this.modificarUsuarioToolStripMenuItem.Name = "modificarUsuarioToolStripMenuItem";
-            this.modificarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modificarUsuarioToolStripMenuItem.Text = "Modificar Usuario";
-            this.modificarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.modificarUsuarioToolStripMenuItem_Click);
-            // 
-            // cerrarSesionToolStripMenuItem1
-            // 
-            this.cerrarSesionToolStripMenuItem1.Name = "cerrarSesionToolStripMenuItem1";
-            this.cerrarSesionToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.cerrarSesionToolStripMenuItem1.Text = "Cerrar Sesion";
-            this.cerrarSesionToolStripMenuItem1.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem1_Click);
+            this.modulosToolStripMenuItem.Name = "modulosToolStripMenuItem";
+            this.modulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modulosToolStripMenuItem.Text = "Modulos";
+            this.modulosToolStripMenuItem.Click += new System.EventHandler(this.modulosToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -136,5 +145,6 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripMenuItem aBMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem especialidadesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem modulosToolStripMenuItem;
     }
 }

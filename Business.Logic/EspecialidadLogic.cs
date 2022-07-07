@@ -1,20 +1,20 @@
-﻿using System;
+﻿using Business.Entities;
+using Data.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Business.Entities;
-using Data.Database;
 
 namespace Business.Logic
 {
-    public class EspecialidadesLogic:BusinessLogic
+    public class EspecialidadLogic : BusinessLogic
     {
-        private EspecialidadesAdapter EspecialidadData;
+        private EspecialidadAdapter EspecialidadData;
 
-        public EspecialidadesLogic()
+        public EspecialidadLogic()
         {
-            EspecialidadData = new EspecialidadesAdapter();
+            EspecialidadData = new EspecialidadAdapter();
         }
 
         public Especialidad GetOne(int id)

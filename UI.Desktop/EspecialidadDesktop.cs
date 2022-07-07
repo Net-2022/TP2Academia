@@ -27,7 +27,7 @@ namespace UI.Desktop
         public EspecialidadDesktop(int ID, ModoForm modo) : this()
         {
             this.modo = modo;
-            EspecialidadesLogic el = new EspecialidadesLogic();
+            EspecialidadLogic el = new EspecialidadLogic();
             this.EspecialidadActual = el.GetOne(ID);
             MapearDeDatos();
         }
@@ -87,7 +87,7 @@ namespace UI.Desktop
         private new void GuardarCambios()
         {
             MapearADatos();
-            EspecialidadesLogic el = new EspecialidadesLogic();
+            EspecialidadLogic el = new EspecialidadLogic();
             el.Save(EspecialidadActual);
         }
 
@@ -97,15 +97,16 @@ namespace UI.Desktop
 
             bool isOK = descripcionVal;
 
-            if (!isOK) {
-                MessageBox.Show("Hay campos incorrectos, por favor verifique.","Campos incorrectos",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            if (!isOK)
+            {
+                MessageBox.Show("Hay campos incorrectos, por favor verifique.", "Campos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return isOK;
         }
 
         #region ValidacionesPersonalizadas
 
-        private bool ValidarCampoVacio(TextBox txtActual,ErrorProvider erpActual, string mensajeError)
+        private bool ValidarCampoVacio(TextBox txtActual, ErrorProvider erpActual, string mensajeError)
         {
             if (String.IsNullOrEmpty(txtActual.Text.Trim()))
             {

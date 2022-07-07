@@ -1,9 +1,9 @@
+using Business.Entities;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Business.Entities;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace Data.Database
 {
@@ -42,7 +42,8 @@ namespace Data.Database
                 Exception excepcionManejada = new Exception("Error al recuperar la lista de Usuarios", Ex);
                 throw excepcionManejada;
             }
-            finally {
+            finally
+            {
                 this.CloseConnection();
             }
             return usuarios;
@@ -107,21 +108,21 @@ namespace Data.Database
         {
             try
             {
-            this.OpenConnection();
+                this.OpenConnection();
 
-            SqlCommand cmdUpdate = new SqlCommand("Update usuarios set nombre_usuario=@nombre_usuario, clave=@clave,"+
-                "habilitado=@habilitado, nombre=@nombre, apellido=@apellido, email=@email " +
-                "Where id_usuario=@id", sqlConn);
+                SqlCommand cmdUpdate = new SqlCommand("Update usuarios set nombre_usuario=@nombre_usuario, clave=@clave," +
+                    "habilitado=@habilitado, nombre=@nombre, apellido=@apellido, email=@email " +
+                    "Where id_usuario=@id", sqlConn);
 
-            cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = modifiedUsr.ID;
-            cmdUpdate.Parameters.Add("@nombre_usuario", SqlDbType.VarChar).Value = modifiedUsr.NombreUsuario;
-            cmdUpdate.Parameters.Add("@clave", SqlDbType.VarChar).Value = modifiedUsr.Clave;
-            cmdUpdate.Parameters.Add("@habilitado", SqlDbType.Bit).Value = modifiedUsr.Habilitado;
-            cmdUpdate.Parameters.Add("@nombre", SqlDbType.VarChar).Value = modifiedUsr.Nombre;
-            cmdUpdate.Parameters.Add("@apellido", SqlDbType.VarChar).Value = modifiedUsr.Apellido;
-            cmdUpdate.Parameters.Add("@email", SqlDbType.VarChar).Value = modifiedUsr.Email;
+                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = modifiedUsr.ID;
+                cmdUpdate.Parameters.Add("@nombre_usuario", SqlDbType.VarChar).Value = modifiedUsr.NombreUsuario;
+                cmdUpdate.Parameters.Add("@clave", SqlDbType.VarChar).Value = modifiedUsr.Clave;
+                cmdUpdate.Parameters.Add("@habilitado", SqlDbType.Bit).Value = modifiedUsr.Habilitado;
+                cmdUpdate.Parameters.Add("@nombre", SqlDbType.VarChar).Value = modifiedUsr.Nombre;
+                cmdUpdate.Parameters.Add("@apellido", SqlDbType.VarChar).Value = modifiedUsr.Apellido;
+                cmdUpdate.Parameters.Add("@email", SqlDbType.VarChar).Value = modifiedUsr.Email;
 
-            cmdUpdate.ExecuteNonQuery();
+                cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -166,7 +167,7 @@ namespace Data.Database
         {
             switch (usuario.State)
             {
-                case BusinessEntity.States.New:this.Insert(usuario); break;
+                case BusinessEntity.States.New: this.Insert(usuario); break;
                 case BusinessEntity.States.Deleted: this.Delete(usuario.ID); break;
                 case BusinessEntity.States.Modified: this.Update(usuario); break;
                 case BusinessEntity.States.Unmodified: break;

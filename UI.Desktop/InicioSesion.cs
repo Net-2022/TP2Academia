@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business.Entities;
 
 
 namespace UI.Desktop
@@ -28,7 +28,7 @@ namespace UI.Desktop
             Business.Logic.UsuarioLogic userLogic = new Business.Logic.UsuarioLogic();
             List<Usuario> listaUsuarios = userLogic.GetAll();
 
-            Usuario usuarioEncontrado= new Usuario();
+            Usuario usuarioEncontrado = new Usuario();
             Boolean flag = false;
 
             foreach (Usuario usuarioActual in listaUsuarios)
