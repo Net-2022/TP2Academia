@@ -62,5 +62,10 @@ namespace UI.Desktop
         {
             new ModulosUsuarios().Show();
         }
+
+        private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Materias().Show();
+        }
     }
 }

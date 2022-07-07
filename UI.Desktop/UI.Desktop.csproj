@@ -77,9 +77,7 @@
     <Compile Include="CursoDesktop.Designer.cs">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="EspecialidadesDesktop.cs">
     <Compile Include="ModuloUsuarioDesktop.cs">
-
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModuloUsuarioDesktop.Designer.cs">
@@ -153,7 +151,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
     <EmbeddedResource Include="ComisionDesktop.resx">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,8 +163,6 @@
     <EmbeddedResource Include="CursoDesktop.resx">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EspecialidadesDesktop.resx">
-      <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
     <EmbeddedResource Include="ModuloUsuarioDesktop.resx">
       <DependentUpon>ModuloUsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,7 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EspecialidadDesktop.resx">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
