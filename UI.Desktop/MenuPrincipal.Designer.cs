@@ -38,6 +38,7 @@ namespace UI.Desktop
             this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.especialidadesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modulosUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +91,8 @@ namespace UI.Desktop
             this.aBMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuariosToolStripMenuItem1,
             this.especialidadesToolStripMenuItem1,
-            this.modulosToolStripMenuItem});
+            this.modulosToolStripMenuItem,
+            this.modulosUsuariosToolStripMenuItem});
             this.aBMToolStripMenuItem.Name = "aBMToolStripMenuItem";
             this.aBMToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.aBMToolStripMenuItem.Text = "ABM";
@@ -115,6 +117,13 @@ namespace UI.Desktop
             this.modulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modulosToolStripMenuItem.Text = "Modulos";
             this.modulosToolStripMenuItem.Click += new System.EventHandler(this.modulosToolStripMenuItem_Click);
+            // 
+            // modulosUsuariosToolStripMenuItem
+            // 
+            this.modulosUsuariosToolStripMenuItem.Name = "modulosUsuariosToolStripMenuItem";
+            this.modulosUsuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modulosUsuariosToolStripMenuItem.Text = "ModulosUsuarios";
+            this.modulosUsuariosToolStripMenuItem.Click += new System.EventHandler(this.modulosUsuariosToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -146,5 +155,6 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem especialidadesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem modulosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modulosUsuariosToolStripMenuItem;
     }
 }
