@@ -53,7 +53,33 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComisionDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComisionDesktop.Designer.cs">
+      <DependentUpon>ComisionDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comisiones.Designer.cs">
+      <DependentUpon>Comisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cursos.Designer.cs">
+      <DependentUpon>Cursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CursoDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CursoDesktop.Designer.cs">
+      <DependentUpon>CursoDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspecialidadesDesktop.cs">
     <Compile Include="ModuloUsuarioDesktop.cs">
+
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModuloUsuarioDesktop.Designer.cs">
@@ -89,6 +115,18 @@
     <Compile Include="InicioSesion.designer.cs">
       <DependentUpon>InicioSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="MateriaDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MateriaDesktop.Designer.cs">
+      <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materias.Designer.cs">
+      <DependentUpon>Materias.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +153,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+
+    <EmbeddedResource Include="ComisionDesktop.resx">
+      <DependentUpon>ComisionDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comisiones.resx">
+      <DependentUpon>Comisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cursos.resx">
+      <DependentUpon>Cursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CursoDesktop.resx">
+      <DependentUpon>CursoDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspecialidadesDesktop.resx">
+      <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
     <EmbeddedResource Include="ModuloUsuarioDesktop.resx">
       <DependentUpon>ModuloUsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +182,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EspecialidadDesktop.resx">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MateriaDesktop.resx">
+      <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materias.resx">
+      <DependentUpon>Materias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
