@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModuloUsuarioLogic.cs" />
     <Compile Include="ModuloLogic.cs" />
     <Compile Include="EspecialidadLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

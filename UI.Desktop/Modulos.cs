@@ -66,8 +66,8 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            ModuloDesktop especialidadDesktop = new ModuloDesktop(ApplicationForm.ModoForm.Alta);
-            especialidadDesktop.ShowDialog();
+            ModuloDesktop ModuloDesktop = new ModuloDesktop(ApplicationForm.ModoForm.Alta);
+            ModuloDesktop.ShowDialog();
             this.Listar();
         }
 
@@ -75,8 +75,8 @@ namespace UI.Desktop
         {
             int ID = ((Business.Entities.Modulo)this.dgvModulos.SelectedRows[0].DataBoundItem).ID;
 
-            ModuloDesktop especialidadDesktop = new ModuloDesktop(ID, ApplicationForm.ModoForm.Baja);
-            especialidadDesktop.ShowDialog();
+            ModuloDesktop ModuloDesktop = new ModuloDesktop(ID, ApplicationForm.ModoForm.Baja);
+            ModuloDesktop.ShowDialog();
             this.Listar();
         }
 
@@ -84,8 +84,8 @@ namespace UI.Desktop
         {
             int ID = ((Business.Entities.Modulo)this.dgvModulos.SelectedRows[0].DataBoundItem).ID;
 
-            ModuloDesktop especialidadDesktop = new ModuloDesktop(ID, ApplicationForm.ModoForm.Modificacion);
-            especialidadDesktop.ShowDialog();
+            ModuloDesktop ModuloDesktop = new ModuloDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+            ModuloDesktop.ShowDialog();
             this.Listar();
         }
     }
