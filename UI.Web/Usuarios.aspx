@@ -25,14 +25,18 @@
         
         <asp:Label ID="lblNombre" runat="server" Text="Nombre: " />
         <asp:TextBox ID="txtNombre" runat="server" />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtNombre" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
         <br />
 
         <asp:Label ID="lblApellido" runat="server" Text="Apellido: " />
         <asp:TextBox ID="txtApellido" runat="server" />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtApellido"   ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
         <br />
 
         <asp:Label ID="lblEmail" runat="server" Text="Email: " />
-        <asp:TextBox ID="txtEmail" runat="server" />
+        <asp:TextBox ID="txtEmail" runat="server" CausesValidation="true" />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtEmail" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+        <asp:CustomValidator ID="CustomValidator1" ControlToValidate="txtEmail" OnServerValidate="ValidateEmail" runat="server" ErrorMessage="AA"/>
         <br />
 
         <asp:Label ID="lblHabilitado" runat="server" Text="Habilitado: " />
@@ -41,19 +45,22 @@
 
         <asp:Label ID="lblNombreUsuario" runat="server" Text="Usuario: " />
         <asp:TextBox ID="txtNombreUsuario" runat="server" />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" controlToValidate="txtNombreUsuario" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
         <br />
 
         <asp:Label ID="lblClave" runat="server" Text="Clave: " />
         <asp:TextBox ID="txtClave" TextMode="Password" runat="server" />
+        <asp:CustomValidator ID="CustomValidator2" controlToValidate="txtClave" OnServerValidate="ValidatePassword" runat="server" ErrorMessage="CustomValidator"></asp:CustomValidator>
         <br />
 
         <asp:Label ID="lblRepetirClave" runat="server" Text="Repetir clave: " />
-        <asp:TextBox ID="txtRepetirClave" TextMode="Password" runat="server" />
+        <asp:TextBox ID="txtRepetirClave" TextMode="Password" runat="server" /><asp:CompareValidator ID="CompareValidator1" ControlToValidate="txtRepetirClave" ControlToCompare="txtClave" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
         <br />
-        
+
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowSummary="true"/>
         <asp:Panel ID="formActionPanel" runat="server">
-            <asp:LinkButton ID="btnAceptar" runat="server" OnClick="btnAceptar_Click">Aceptar</asp:LinkButton>
-            <asp:LinkButton ID="btnCancelar" runat="server" OnClick="btnCancelar_Click">Cancelar</asp:LinkButton>
+            <asp:LinkButton ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" CausesValidation="true">Aceptar</asp:LinkButton>
+            <asp:LinkButton ID="btnCancelar" runat="server" OnClick="btnCancelar_Click" CausesValidation="false">Cancelar</asp:LinkButton>
         </asp:Panel>
     </asp:Panel>
     

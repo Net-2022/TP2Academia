@@ -163,30 +163,31 @@ namespace UI.Web
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            
-            switch (this.formMode)
-            {
-                case FormMode.Alta:
-                    this.Entity = new Usuario();
-                    this.LoadEntity(Entity);
-                    this.SaveEntity(Entity);
-                    break;
-                case FormMode.Baja:
-                    this.DeleteEntity(this.SelectedID);
-                    break;
-                case FormMode.Modificacion:
-                    this.Entity = new Usuario();
-                    this.Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(Entity);
-                    this.SaveEntity(Entity);
-                    break;
-                default:
-                    throw new NotImplementedException();
-            }
-            this.LoadGrid();
+            if (Page.IsValid){
+                switch (this.formMode)
+                {
+                    case FormMode.Alta:
+                        this.Entity = new Usuario();
+                        this.LoadEntity(Entity);
+                        this.SaveEntity(Entity);
+                        break;
+                    case FormMode.Baja:
+                        this.DeleteEntity(this.SelectedID);
+                        break;
+                    case FormMode.Modificacion:
+                        this.Entity = new Usuario();
+                        this.Entity.ID = this.SelectedID;
+                        this.Entity.State = BusinessEntity.States.Modified;
+                        this.LoadEntity(Entity);
+                        this.SaveEntity(Entity);
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+                this.LoadGrid();
 
-            this.formPanel.Visible = false;
+                this.formPanel.Visible = false;
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -194,5 +195,25 @@ namespace UI.Web
             this.formPanel.Visible = false;
         }
 
+        protected void ValidateEmail(object source, ServerValidateEventArgs args)
+        {
+                bool validationsResult = Validaciones.IsValidEmail(args.Value);
+
+                args.IsValid=validationsResult;
+        }
+
+        protected void ValidatePassword(object source, ServerValidateEventArgs args)
+        {
+            try
+            {
+                bool validationsResult = Validaciones.IsVaildPassword((string)args.Value);
+
+                args.IsValid = validationsResult;
+            }
+            catch (Exception)
+            {
+                args.IsValid = false;
+            }
+        }
     }
 }

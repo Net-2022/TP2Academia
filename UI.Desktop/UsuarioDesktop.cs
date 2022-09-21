@@ -148,7 +148,7 @@ namespace UI.Desktop
 
         private bool ValidarClave(TextBox txtActual, ErrorProvider erpActual, string mensajeError)
         {
-            if (txtActual.Text.Trim().Length < 8)
+            if (Validaciones.IsVaildPassword(txtActual.Text))
             {
                 erpActual.SetError(txtActual, mensajeError);
                 return false;
