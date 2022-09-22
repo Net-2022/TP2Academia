@@ -1,0 +1,9 @@
+﻿.container{
+    display:inline-block;
+    align-items:center;
+    justify-items:center;
+}
+
+.warningText{
+    color:#ff0000;
+}
