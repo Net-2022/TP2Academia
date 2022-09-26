@@ -6,9 +6,12 @@
         <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <h1 class="text-bg-primary text-center">La Academia</h1>
         <form id="bodyForm" runat="server">
-            <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource"></asp:Menu>
-            <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+            <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1"></asp:TreeView>
+            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+            <br />
+            <div class="border-top border-dark"/>
             <div>
                 <asp:ContentPlaceHolder ID="bodyContentPlaceholder" runat="server">
 
