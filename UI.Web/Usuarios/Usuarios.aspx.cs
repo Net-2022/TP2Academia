@@ -77,7 +77,8 @@ namespace UI.Web
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SelectedID = (int)this.gridView.SelectedValue;
+            this.SelectedID = (int)this.gridView.SelectedValue; 
+            this.formPanel.Visible = false;
         }
 
         protected void LoadForm(int id)
@@ -98,8 +99,8 @@ namespace UI.Web
             usuario.Apellido = this.txtApellido.Text;
             usuario.Email= this.txtEmail.Text;
             usuario.NombreUsuario = this.txtNombreUsuario.Text;
-            usuario.Clave = this.txtClave.Text;
             usuario.Habilitado = this.chkHabilitado.Checked;
+            usuario.Clave = this.txtClave.Attributes["value"];
         }
         private void SaveEntity(Usuario usuario)
         {
@@ -158,12 +159,14 @@ namespace UI.Web
             this.txtEmail.Text = string.Empty;
             this.chkHabilitado.Checked = true;
             this.txtNombreUsuario.Text = string.Empty;
-            this.txtClave.Text = string.Empty;
+            this.txtClave.Attributes["value"] = string.Empty;
+            this.txtRepetirClave.Attributes["value"] = string.Empty;
         }
 
-        protected void btnAceptar_Click(object sender, EventArgs e)
+            protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid){
+            if (Page.IsValid || this.formMode == FormMode.Baja)
+            {
                 switch (this.formMode)
                 {
                     case FormMode.Alta:
@@ -204,16 +207,9 @@ namespace UI.Web
 
         protected void ValidatePassword(object source, ServerValidateEventArgs args)
         {
-            try
-            {
                 bool validationsResult = Validaciones.IsVaildPassword((string)args.Value);
 
                 args.IsValid = validationsResult;
-            }
-            catch (Exception)
-            {
-                args.IsValid = false;
-            }
         }
     }
 }
