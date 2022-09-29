@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class Site
+    public partial class Home
     {
 
         /// <summary>
@@ -24,30 +24,12 @@ namespace UI.Web
         protected global::System.Web.UI.HtmlControls.HtmlForm bodyForm;
 
         /// <summary>
-        /// Control TreeView1.
+        /// Control Login1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TreeView TreeView1;
-
-        /// <summary>
-        /// Control SiteMapDataSource1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource1;
-
-        /// <summary>
-        /// Control bodyContentPlaceholder.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder bodyContentPlaceholder;
+        protected global::System.Web.UI.WebControls.Login Login1;
     }
 }
