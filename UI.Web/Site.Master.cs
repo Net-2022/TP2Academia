@@ -11,7 +11,10 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["IDUsuarioLogueado"] == null)
+            {
+                Response.Redirect("~/Login/Login.aspx");
+            }
         }
     }
 }
