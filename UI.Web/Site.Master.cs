@@ -16,5 +16,11 @@ namespace UI.Web
                 Response.Redirect("~/Login/Login.aspx");
             }
         }
+
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Session.Remove("IDUsuarioLogueado");
+            Response.Redirect("~/Login/Login.aspx");
+        }
     }
 }
