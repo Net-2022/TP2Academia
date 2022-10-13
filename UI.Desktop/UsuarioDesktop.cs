@@ -148,7 +148,7 @@ namespace UI.Desktop
 
         private bool ValidarClave(TextBox txtActual, ErrorProvider erpActual, string mensajeError)
         {
-            if (Validaciones.IsVaildPassword(txtActual.Text))
+            if (Validaciones.IsValidPassword(txtActual.Text))
             {
                 erpActual.SetError(txtActual, mensajeError);
                 return false;

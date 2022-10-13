@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UI.Web.Home" %>
+﻿<%@ Page Title="Log In" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UI.Web.Home" %>
 
 <html xmlns="http://www.w3.org//199//xhtml">
     <head runat ="server">
@@ -30,9 +30,7 @@
                     </div>
                     <br />
                   <!-- Submit button -->
-                  <asp:Button runat="server" ID="btnLoguearse" class="btn btn-primary btn-block mb-4" Text="Log In" OnClick="btnLoguearse_Click"/>
-                </form>
-                    
+                  <asp:Button runat="server" ID="btnLoguearse" class="btn btn-primary btn-block mb-4" Text="Log In" OnClick="btnLoguearse_Click"/>                    
             </div>
         </form>
     </body>

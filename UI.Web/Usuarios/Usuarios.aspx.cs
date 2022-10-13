@@ -100,7 +100,7 @@ namespace UI.Web
             usuario.Email= this.txtEmail.Text;
             usuario.NombreUsuario = this.txtNombreUsuario.Text;
             usuario.Habilitado = this.chkHabilitado.Checked;
-            usuario.Clave = this.txtClave.Attributes["value"];
+            usuario.Clave = this.txtClave.Text;
         }
         private void SaveEntity(Usuario usuario)
         {
@@ -207,7 +207,7 @@ namespace UI.Web
 
         protected void ValidatePassword(object source, ServerValidateEventArgs args)
         {
-                bool validationsResult = Validaciones.IsVaildPassword((string)args.Value);
+                bool validationsResult = Validaciones.IsValidPassword(args.Value);
 
                 args.IsValid = validationsResult;
         }

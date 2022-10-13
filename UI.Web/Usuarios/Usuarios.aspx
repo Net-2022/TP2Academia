@@ -97,7 +97,7 @@
             <div class="d-flex p-5 align-content-center justify-content-center">
                 <asp:LinkButton ID="btnAceptar" runat="server" OnClick="btnAceptar_Click"  CausesValidation="true" CssClass="btn btn-primary justify-content-center m-5">Aceptar</asp:LinkButton>
                 <asp:LinkButton ID="btnCancelar" runat="server" OnClick="btnCancelar_Click" CausesValidation="false"  CssClass="btn btn-secondary justify-content-center m-5">Cancelar</asp:LinkButton>
-                </div>
+            </div>
         </asp:Panel>
 
     </asp:Panel>
