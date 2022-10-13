@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org//199//xhtml">
     <head runat ="server">
-        <title>Academia</title>
+        <title>LogIn</title>
         <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="~/Login/Login.css" rel="stylesheet" type="text/css"/>
     </head>
