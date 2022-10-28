@@ -1,0 +1,20 @@
+﻿.center-container{
+    position: absolute;
+    top: 50%; /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%); /* This is a shorthand of
+                                         translateX(-50%) and translateY(-50%) */
+}
+.fixed-width{
+    width:110px;
+}
+.w-40{
+    width:40%;
+}
+
+.form-background {
+    background-color: #D2D9FF;
+    border: solid 2px black;
+    border-radius: 20px;
+}

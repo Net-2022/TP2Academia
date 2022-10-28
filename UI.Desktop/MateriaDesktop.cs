@@ -34,7 +34,7 @@ namespace UI.Desktop
             MapearDeDatos();
         }
 
-        public virtual void MapearDeDatos()
+        new public virtual void MapearDeDatos()
         {
             if (modo == ModoForm.Alta)
             {
@@ -77,7 +77,7 @@ namespace UI.Desktop
 
         }
 
-        public virtual void MapearADatos()
+        new public virtual void MapearADatos()
         {
             if (modo == ModoForm.Alta)
             {
@@ -91,7 +91,7 @@ namespace UI.Desktop
 
         }
 
-        public virtual void GuardarCambios()
+        new public virtual void GuardarCambios()
         {
             MapearADatos();
             MateriaLogic ml = new MateriaLogic();
@@ -99,7 +99,7 @@ namespace UI.Desktop
 
         }
 
-        public virtual bool Validar()
+        new public virtual bool Validar()
         {
             bool descripcionVal = ValidarCampoVacio(txtDescripcion, errorDescripcion, "La descripcion no puede estar vacia.");
             bool idPlanVal = ValidarCampoVacio(txtIDPlan, errorIDPlan, "El Id del Plan no puede estar vacio.");

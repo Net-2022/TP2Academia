@@ -24,6 +24,11 @@
                 return false;
             }
         }
+
+        static public bool IsValidPassword(string password)
+        {
+            return password.Trim().Length > 8;
+        }
     }
 
 }
